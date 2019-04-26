@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     render json: @users, status: :ok
   end
 
-  # GET /users/{username}
+  # GET /users/:id
   def show
     render json: @user, status: :ok
   end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/{username}
+  # PUT /users/:id
   def update
     unless @user.update(user_params)
       render json: { errors: @user.errors.full_messages },
@@ -32,15 +32,25 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/{username}
+  # DELETE /users/:id
   def destroy
     @user.destroy
+  end
+
+  # GET /users/:id/posts
+  def get_posts
+    render json: @user.posts
+  end
+
+  # GET /users/:id/comments
+  def get_comments
+    render json: @user.comments
   end
 
   private
 
   def find_user
-    @user = User.find_by_username!(params[:_username])
+    @user = User.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     render json: { errors: 'User not found' }, status: :not_found
   end
