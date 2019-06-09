@@ -5,8 +5,8 @@ class PostsController < ApplicationController
     # GET /posts
     def index
         @posts = Post.all
-
-        render json: @posts, status: :ok
+        @orderedPosts = @posts.order(created_at: :desc)
+        render json: @orderedPosts, status: :ok
     end
 
     #GET /posts/:id
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     # POST /posts
     def create
         @post = Post.new(post_params)
-
+        @post.degree = 0
         if @post.save
             render json: @post, status: :created, location: @post
         else
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-        params.permit(:title, :content, :user_id)
+        params.permit(:title, :content, :user_id, :subject_id)
     end
 
 end

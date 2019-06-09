@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :types
   resources :subjects
   post '/auth/login', to: 'authentication#login'
+  get '/token', to: 'authentication#getToken'
   get '/*a', to: 'application#not_found'
   get 'posts/:id/comments', to: 'posts#get_comments'
   get 'subjects/:id/post', to: 'subjects#get_posts'

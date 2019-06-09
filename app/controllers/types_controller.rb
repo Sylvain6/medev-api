@@ -17,7 +17,7 @@ class TypesController < ApplicationController
 
     # GET /types/:id/subjets
     def get_subjects
-        render json: @type.subjets
+        render json: @type.subjects
     end
 
     private

@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
 
-    before_action :set_subject, only:[:show, :get_posts]
+    before_action :set_subject, only:[:show, :get_post]
 
     # GET /subjects
     def index
@@ -15,7 +15,7 @@ class SubjectsController < ApplicationController
         render json: @subject, status: :ok
     end
 
-    # GET /subjects/:id/posts
+    # GET /subject/:id/posts
     def get_posts
         render json: @subject.posts
     end

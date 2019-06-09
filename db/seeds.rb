@@ -90,9 +90,6 @@ Type.create([
     },
     {
         name: 'Web Development Communities'
-    },
-    {
-        name: 'Web Development Newsletters'
     }
             ]
 )
@@ -342,6 +339,36 @@ Subject.create([
         name: 'Texts',
         icon: 'http://www.texts.io/img/logo.png',
         type_id: 6
+    },
+    {
+        name: 'Font Awesome',
+        icon: 'https://www.drupal.org/files/project-images/font_awesome_logo.png',
+        type_id: 7
+    },
+    {
+        name: 'IconMonster',
+        icon: 'https://cdns.iconmonstr.com/wp-content/assets/preview/2016/240/iconmonstr-logo-1.png',
+        type_id: 7
+    },
+    {
+        name: 'Icons8',
+        icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwcWlLmRwN2843jJmFsV77Z-Hh2lRMSGbp4telgLGHiUnEUq3eag',
+        type_id: 7
+    },
+    {
+        name: 'IconFinder',
+        icon: 'https://cdn.iconfinder.com/static/img/favicons/favicon-194x194.png?bf2736d2f8',
+        type_id: 7
+    },
+    {
+        name: 'Fontello',
+        icon: 'https://camo.githubusercontent.com/fd8e51a1c5161fbcff241c09b4e1001c20768b3f/68747470733a2f2f7261776769746875622e636f6d2f666f6e74656c6c6f2f666f6e74656c6c6f2f6d61737465722f666f6e74656c6c6f2d696d6167652e737667',
+        type_id: 7
+    },
+    {
+        name: 'Noun Project',
+        icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/The_Noun_Project_logo.svg/1024px-The_Noun_Project_logo.svg.png',
+        type_id: 7
     }
 ])
 
