@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_150619) do
+ActiveRecord::Schema.define(version: 2019_06_27_171625) do
 
   create_table "comments", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2019_06_06_150619) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "degrees", force: :cascade do |t|
+    t.string "positive"
+    t.integer "post_id"
+    t.integer "user_id"
+    t.index ["post_id"], name: "index_degrees_on_post_id"
+    t.index ["user_id", "post_id", "positive"], name: "index_degrees_on_user_id_and_post_id_and_positive", unique: true
+    t.index ["user_id"], name: "index_degrees_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "content"
@@ -33,9 +42,6 @@ ActiveRecord::Schema.define(version: 2019_06_06_150619) do
     t.integer "subject_id"
     t.index ["subject_id"], name: "index_posts_on_subject_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "posts_and_comments", force: :cascade do |t|
   end
 
   create_table "subjects", force: :cascade do |t|

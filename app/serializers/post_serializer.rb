@@ -4,4 +4,8 @@ class PostSerializer < ActiveModel::Serializer
   def nb_comments
     Comment.where(post_id: object.id).count
   end
+
+  def degree
+    Degree.where(post_id: object.id, positive: 'positive').count - Degree.where(post_id: object.id, positive: 'negative').count
+  end
 end

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :comments
   resources :types
   resources :subjects
+  resources :degrees
+  get 'degrees(/:post_id)(/:user_id)(/:positive)', controller: 'degrees', action: 'show'
   post '/auth/login', to: 'authentication#login'
   get '/token', to: 'authentication#getToken'
   get '/*a', to: 'application#not_found'
