@@ -391,10 +391,18 @@ end
     })
 end
 
+rows = [{
+    positive: ['positive', 'negative'].sample,
+    user_id: rand(4...103),
+    post_id: rand(1...500)
+}]
 100000.times do
-    Degree.create({
-        positive: ['positive', 'negative'].sample,
+    rows.push({
+        positive: ['positive', 'negative', 'positive'].sample,
         user_id: rand(4...103),
-        post_id: rand(1...500)
-    })
+        post_id: rand(1...500)})
 end
+
+rows.each do |row|
+    Degree.where({positive: row[:positive], post_id: row[:post_id], user_id: row[:user_id]}).first_or_create(row)
+  end
